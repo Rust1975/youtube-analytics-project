@@ -55,36 +55,60 @@ class Channel:
 
     @property
     def channel_id(self):
-        return self.__channel_id
+        try:
+            return self.__channel_id
+        except Exception:
+            return None
 
     @property
     def id(self):
-        return self.data_youtube.get("items", [{}])[0].get("id", "")
+        try:
+            return self.data_youtube.get("items", [{}])[0].get("id", "")
+        except Exception:
+            return None
 
     @property
     def title(self):
-        return self.data_youtube.get("items", [{}])[0].get("snippet", {}).get("title", "")
+        try:
+            return self.data_youtube.get("items", [{}])[0].get("snippet", {}).get("title", "")
+        except Exception:
+            return None
 
     @property
     def description(self):
-        return self.data_youtube.get("items", [{}])[0].get("snippet", {}).get("description", "")
+        try:
+            return self.data_youtube.get("items", [{}])[0].get("snippet", {}).get("description", "")
+        except Exception:
+            return None
 
     @property
     def url(self):
-        return (self.data_youtube.get("items", [{}])[0].get("snippet", {}).get("thumbnails", {}).get("default", {})
-                .get("url", ""))
+        try:
+            return (self.data_youtube.get("items", [{}])[0].get("snippet", {}).get("thumbnails", {}).get("default", {})
+                    .get("url", ""))
+        except Exception:
+            return None
 
     @property
     def subscriberCount(self):
-        return self.data_youtube.get("items", [{}])[0].get("statistics", {}).get("subscriberCount", "")
+        try:
+            return self.data_youtube.get("items", [{}])[0].get("statistics", {}).get("subscriberCount", "")
+        except Exception:
+            return None
 
     @property
     def video_Count(self):
-        return self.data_youtube.get("items", [{}])[0].get("statistics", {}).get("videoCount", "")
+        try:
+            return self.data_youtube.get("items", [{}])[0].get("statistics", {}).get("videoCount", "")
+        except Exception:
+            return None
 
     @property
     def viewCount(self):
-        return self.data_youtube.get("items", [{}])[0].get("statistics", {}).get("viewCount", "")
+        try:
+            return self.data_youtube.get("items", [{}])[0].get("statistics", {}).get("viewCount", "")
+        except Exception:
+            return None
 
     def print_info(self) -> None:
         """Выводит в консоль информацию о канале."""

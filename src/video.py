@@ -16,7 +16,10 @@ class Video(Channel):
 
     @property
     def likecount(self):
-        return self.data_youtube['items'][0]['statistics']['likeCount']
+        try:
+            return self.data_youtube['items'][0]['statistics']['likeCount']
+        except Exception:
+            return None
 
 
 class PLVideo(Video):
@@ -43,6 +46,7 @@ class PLVideo(Video):
 
 
 # video1 = Video('AWX4JnAnjBE')
+# video1 = Video('broken_video_id')
 # print(video1.data_youtube)
 # print(video1.title)
 # print(video1.video_id)
@@ -50,6 +54,7 @@ class PLVideo(Video):
 # print(video1.viewCount)
 # print(video1.likecount)
 # print(str(video1))
+# print(video1.channel_id)
 
 # video2 = PLVideo('4fObz_qw9u4', 'PLv_zOGKKxVph_8g2Mqc3LMhj0M_BfasbC')
 # print(video2.playlist_videos)
